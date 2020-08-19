@@ -3,6 +3,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
+import java.util.Locale;
 
 @Data
 @NoArgsConstructor
@@ -18,8 +19,8 @@ public class Bill {
             for (Product product : products) {
                 output += product.toString();
             }
-            output += "Sales Taxes: " + String.format("%.2f", totalTaxes).replace(",", ".") +"\r\n";
-            output += "Total: " + String.format("%.2f", totalPrice).replace(",", ".") +"\r\n";
+            output += "Sales Taxes: " + String.format(Locale.ROOT,"%.2f", totalTaxes) +"\r\n";
+            output += "Total: " + String.format(Locale.ROOT,"%.2f", totalPrice) +"\r\n";
         }
         return output;
     }
