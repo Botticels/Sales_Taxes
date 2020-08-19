@@ -12,13 +12,13 @@ public abstract class Product {
     private String name;
     private float price;
     private int numberOfProducts;
+    private float salesTaxes = 0;
     private boolean isImported;
 
     public abstract void calculateSalesTaxes();
-    public abstract float getSalesTaxes();
-    public String print()
+    public String toString()
     {
-        return numberOfProducts + " " + name + ": " + price;
+        return numberOfProducts + name + ": " + String.format("%.2f", price*numberOfProducts).replace(",", ".") + "\r\n";
     }
 }
 

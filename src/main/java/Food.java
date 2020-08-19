@@ -1,20 +1,18 @@
-import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
 @NoArgsConstructor
-@AllArgsConstructor
 public class Food extends Product{
-    private float salesTaxes;
 
-    public Food(String name, float price, boolean isImported, int numberOfProducts) {
-        super(name, price, numberOfProducts, isImported);
-        this.salesTaxes = 0;
+    public Food(String name, float price, int numberOfProducts, float saleTaxes,  boolean isImported) {
+        super(name, price, numberOfProducts, saleTaxes, isImported);
     }
 
     @Override
     public void calculateSalesTaxes() {
-        this.salesTaxes = 0;
+        if(isImported()){
+            float salesTaxes = getSalesTaxes() + (float) (this.getPrice() * 0.05);
+            salesTaxes = (float) (Math.round(salesTaxes * 20) / 20.0);
+            setSalesTaxes(salesTaxes);
+        }
     }
 }
