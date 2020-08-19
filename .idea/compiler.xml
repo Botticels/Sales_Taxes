@@ -11,7 +11,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="Sales_Taxes" target="1.5" />
+      <module name="Sales_Taxes" target="8" />
     </bytecodeTargetLevel>
   </component>
 </project>
